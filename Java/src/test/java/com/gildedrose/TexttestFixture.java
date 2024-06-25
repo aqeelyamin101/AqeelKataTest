@@ -33,4 +33,15 @@ public class TexttestFixture {
         }
     }
 
+    public void testThatConjuredItemQualityIsNotNegative() {
+        Item[] items = new Item[] { new Item("Conjured Mana Cake", 5, 1) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals("Quality should not be negative", 0, app.items[0].quality);
+        assertEquals("SellIn value should decrease by 1", 4, app.items[0].sellIn);
+    }
+
+    // Other potential test cases
+    // A test to verify that brie increases in quality and that quality does not exceed 50.
+    // A test to verify that backstage passes increase in quality. 
 }
